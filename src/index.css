@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Satoshi", system-ui, sans-serif;
+  --color-canvas: oklch(0.16 0.04 290);
+  --color-canvas-raised: oklch(0.21 0.045 290);
+  --color-ink: oklch(0.97 0.01 290);
+  --color-accent: oklch(0.78 0.19 130);
+  --color-violet: oklch(0.55 0.23 305);
+  --color-coral: oklch(0.68 0.19 30);
+  --color-cyan: oklch(0.75 0.14 210);
+  --color-gold: oklch(0.8 0.15 85);
+}
+
+html,
+body {
+  @apply bg-(--color-canvas) text-(--color-ink) font-body antialiased;
+  overflow-x: hidden;
+  background-image: radial-gradient(oklch(0.97 0.01 290 / 0.06) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+
+body {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px oklch(0.16 0.04 290);
+  paint-order: stroke fill;
+}
+
+::selection {
+  background: oklch(0.78 0.19 130);
+  color: oklch(0.16 0.04 290);
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes spin-rev { to { transform: rotate(-360deg); } }
+@keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+@keyframes rise { 0% { transform: translateY(0) scale(1); opacity: 0; } 15% { opacity: .8; } 100% { transform: translateY(-110vh) scale(.4); opacity: 0; } }
+.animate-marquee { animation: marquee 28s linear infinite; }
+.animate-spin-slow { animation: spin-slow 22s linear infinite; }
+.animate-spin-rev { animation: spin-rev 30s linear infinite; }
+.text-shimmer {
+  background: linear-gradient(90deg, #fff 0%, var(--color-accent) 25%, var(--color-cyan) 50%, var(--color-violet) 75%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-spin-slow, .animate-spin-rev, .text-shimmer { animation: none; }
+}
+html, body { overflow-x: clip; }

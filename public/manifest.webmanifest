@@ -1,0 +1,10 @@
+{
+  "name": "Abdul Qadir Khan — Junior Software Engineer",
+  "short_name": "Qadir",
+  "description": "Portfolio of Abdul Qadir Khan, full-stack and AI agent developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#221b3d",
+  "theme_color": "#221b3d",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

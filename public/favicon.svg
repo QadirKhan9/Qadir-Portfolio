@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <!-- Deep dark violet background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16102b" />
+      <stop offset="50%" stop-color="#221b3d" />
+      <stop offset="100%" stop-color="#2a1e4e" />
+    </linearGradient>
+
+    <!-- Glowing neon border gradient -->
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="45%" stop-color="#c8f169" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <!-- Clean white-silver gradient for Q ring -->
+    <linearGradient id="qGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+
+    <!-- Neon lime glow for the tail -->
+    <linearGradient id="tailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8f169" />
+      <stop offset="100%" stop-color="#a3e635" />
+    </linearGradient>
+
+    <!-- Golden sparkle gradient -->
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <!-- Soft drop shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Neon bloom filter -->
+    <filter id="neonBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Squircle Canvas with subtle shadow -->
+  <rect width="128" height="128" rx="36" fill="url(#bgGradient)" filter="url(#shadow)" />
+
+  <!-- Dual Neon Gradient Border -->
+  <rect x="3" y="3" width="122" height="122" rx="33" fill="none" stroke="url(#borderGradient)" stroke-width="3.5" stroke-opacity="0.85" />
+
+  <!-- Ambient Center Glow Spot -->
+  <circle cx="56" cy="58" r="30" fill="#c8f169" opacity="0.12" />
+
+  <!-- The "Q" Oval Body (Crisp, High-contrast, Bold) -->
+  <circle cx="56" cy="58" r="27" fill="none" stroke="url(#qGradient)" stroke-width="14" stroke-linecap="round" />
+
+  <!-- The Dynamic "Q" Tail (Electric Neon Lime) -->
+  <path d="M63 65 L91 93" stroke="url(#tailGradient)" stroke-width="15" stroke-linecap="round" filter="url(#neonBloom)" />
+
+  <!-- Interior Accent Dot on the tail crossing point -->
+  <circle cx="63" cy="65" r="4.5" fill="#ffffff" />
+
+  <!-- AI / Brand Doodle Sparkle Star (Amber Gold) -->
+  <path d="M98 12 C98 22 100 24 110 24 C100 24 98 26 98 36 C98 26 96 24 86 24 C96 24 98 22 98 12 Z"
+        fill="url(#starGradient)"
+        filter="url(#neonBloom)" />
+</svg>
